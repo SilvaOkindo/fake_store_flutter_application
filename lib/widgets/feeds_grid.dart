@@ -20,10 +20,7 @@ class FeedsGridWidget extends StatelessWidget {
             mainAxisSpacing: 0.0,
             childAspectRatio: 0.6),
         itemBuilder: (ctx, index) {
-          return FeedsWidget(
-            imageUrl: products[index].images![0],
-            title: products[index].title! ,
-          );
+          return const FeedsWidget();
         });
   }
 }

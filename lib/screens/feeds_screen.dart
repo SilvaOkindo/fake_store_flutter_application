@@ -4,6 +4,7 @@ import 'package:store_api_flutter_course/models/product.dart';
 import '../repositories/product_repository.dart';
 import '../services/get_products.dart';
 import '../widgets/feeds_widget.dart';
+import 'package:provider/provider.dart';
 
 class FeedsScreen extends StatelessWidget {
   const FeedsScreen({Key? key}) : super(key: key);
@@ -35,10 +36,9 @@ class FeedsScreen extends StatelessWidget {
                     childAspectRatio: 0.7),
                 itemBuilder: (ctx, index) {
                   var products = snapShot.data?[index];
-                  return FeedsWidget(
-                    imageUrl: products?.images![0],
-                    title: products?.title!,
-                  );
+                  return ChangeNotifierProvider.value(
+                    value: snapShot.data![index],
+                    child: const FeedsWidget());
                 });
           } else {
             return const Center(

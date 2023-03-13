@@ -13,6 +13,7 @@ import 'package:store_api_flutter_course/services/get_products.dart';
 import '../widgets/appbar_icons.dart';
 import '../widgets/feeds_widget.dart';
 import '../widgets/sale_widget.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -176,10 +177,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         childAspectRatio: 0.7),
                                 itemBuilder: (ctx, index) {
                                   var products = snapshot.data?[index];
-                                  return FeedsWidget(
-                                    imageUrl: products?.images![0],
-                                    title: products?.title!,
-                                  );
+                                  return  ChangeNotifierProvider.value(
+                                    value: snapshot.data![index],
+                                    child: const FeedsWidget());
                                 });
                           } else {
                             return const Center(
