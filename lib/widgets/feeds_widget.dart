@@ -30,7 +30,9 @@ class FeedsWidget extends StatelessWidget {
               context,
               PageTransition(
                 type: PageTransitionType.fade,
-                child: const ProductDetails(),
+                child:  ProductDetails(
+                  id: productProvider.id.toString(),
+                ),
               ),
             );
           },
@@ -76,7 +78,7 @@ class FeedsWidget extends StatelessWidget {
                   boxFit: BoxFit.fill,
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 3),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(

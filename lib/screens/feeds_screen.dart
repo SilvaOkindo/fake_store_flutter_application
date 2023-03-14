@@ -35,7 +35,7 @@ class FeedsScreen extends StatelessWidget {
                     mainAxisSpacing: 0.0,
                     childAspectRatio: 0.7),
                 itemBuilder: (ctx, index) {
-                  var products = snapShot.data?[index];
+                  //var products = snapShot.data?[index];
                   return ChangeNotifierProvider.value(
                     value: snapShot.data![index],
                     child: const FeedsWidget());
